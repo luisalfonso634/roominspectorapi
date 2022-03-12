@@ -5,6 +5,7 @@ from django.forms import CharField
 # Employee Model
 class Employee(models.Model):
     employee_code=models.CharField(max_length=6, blank=False,unique=True,default='000000')
+    username=models.CharField(max_length=20,blank=True)
     first_name=models.CharField(max_length=100,blank=True)  
     last_name=models.CharField(max_length=100, blank=True)
     fullname=models.CharField(max_length=200, blank=True, )  

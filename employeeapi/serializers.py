@@ -13,11 +13,11 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ('id', 'user_email', 'password')
+        fields = ('id', 'user_email', 'password','username')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        user = User.objects.create_user(validated_data['user_email'], validated_data['password'])
+        user = User.objects.create_user(validated_data['user_email'], validated_data['password'],validated_data['password'])
 
         return user
 
